@@ -1,0 +1,117 @@
+:root {
+    --bg-color: #f0f8ff; /* Alice Blue - Light blue base */
+    --card-bg: #ffffff;
+    --primary-color: #0077b6;
+    --text-color: #333333;
+    --accent-color: #90e0ef;
+    --header-bg: #0077b6;
+    --header-text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+main {
+    flex: 1;
+    padding: 4rem 0;
+}
+
+.profile-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(144, 224, 239, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.profile-header h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.label {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-weight: bold;
+    min-width: 120px;
+    text-align: center;
+    margin-right: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #ffffff;
+    color: #888;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 600px) {
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .label {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+}
