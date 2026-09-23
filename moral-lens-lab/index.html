@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#151629">
+<title>MORAL LENS LAB｜倫理のものさし30</title>
+<style>
+:root{
+ --bg:#0e1020;--panel:#171a31;--panel2:#202440;--text:#f8f8ff;--sub:#b7bdd9;
+ --purple:#9a7cff;--cyan:#5de1df;--lime:#b9f36a;--pink:#ff8ab3;--yellow:#ffd86b;
+ --line:rgba(255,255,255,.11);--shadow:0 18px 50px rgba(0,0,0,.26);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;color:var(--text);background:
+radial-gradient(circle at 15% 10%,rgba(154,124,255,.22),transparent 25rem),
+radial-gradient(circle at 90% 18%,rgba(93,225,223,.14),transparent 24rem),
+linear-gradient(180deg,#101226 0%,#0d0f1d 100%);min-height:100vh}
+button,input{font:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 18px 72px}
+.hero{padding:30px 0 24px;position:relative}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:900;letter-spacing:.09em;font-size:.83rem;color:var(--cyan)}
+.badge{padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--sub);font-size:.78rem;background:rgba(255,255,255,.04)}
+.heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:22px;align-items:stretch}
+.heroCopy,.roulette{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.035));backdrop-filter:blur(14px);border-radius:28px;box-shadow:var(--shadow)}
+.heroCopy{padding:clamp(24px,5vw,52px);position:relative;overflow:hidden}
+.heroCopy:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:linear-gradient(145deg,var(--purple),var(--cyan));filter:blur(25px);opacity:.12;right:-70px;top:-50px}
+.eyebrow{font-size:.82rem;color:var(--cyan);font-weight:800;letter-spacing:.08em}
+h1{font-size:clamp(2.45rem,8vw,5.5rem);line-height:.95;margin:12px 0 18px;letter-spacing:-.05em}
+.grad{background:linear-gradient(90deg,#fff 0%,#c9c2ff 40%,#88f3e6 100%);-webkit-background-clip:text;color:transparent}
+.lead{max-width:680px;color:#d4d8ec;font-size:clamp(1rem,2vw,1.2rem);margin:0}
+.heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.primary,.ghost{border:0;border-radius:14px;padding:12px 16px;font-weight:900;cursor:pointer;transition:.18s transform,.18s background}
+.primary{background:linear-gradient(90deg,var(--purple),#6ca8ff);color:#fff;box-shadow:0 10px 28px rgba(122,106,255,.3)}
+.ghost{background:rgba(255,255,255,.07);border:1px solid var(--line);color:#fff}
+.primary:active,.ghost:active{transform:scale(.97)}
+.roulette{padding:22px;display:flex;flex-direction:column;justify-content:space-between;min-height:310px}
+.rLabel{font-size:.78rem;color:var(--sub);font-weight:800;letter-spacing:.07em}
+.rIcon{width:72px;height:72px;border-radius:22px;display:grid;place-items:center;font-size:2rem;background:linear-gradient(145deg,rgba(154,124,255,.24),rgba(93,225,223,.12));border:1px solid var(--line);margin:18px 0}
+.rTitle{font-weight:900;font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.25}
+.rDesc{color:var(--sub);font-size:.94rem;margin-top:8px}
+.rFoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px}
+.small{font-size:.77rem;color:#8f96b6}
+.toolbar{position:sticky;top:0;z-index:20;background:rgba(14,16,32,.82);backdrop-filter:blur(16px);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);margin:0 -18px 20px}
+.toolbarIn{max-width:1180px;margin:auto;padding:0 18px;display:flex;gap:10px;align-items:center;overflow-x:auto}
+.search{min-width:220px;flex:1;background:#171a31;border:1px solid var(--line);color:#fff;border-radius:14px;padding:12px 14px;outline:none}
+.chips{display:flex;gap:8px;white-space:nowrap}
+.chip{border:1px solid var(--line);background:#171a31;color:#cbd0e8;padding:10px 12px;border-radius:999px;cursor:pointer;font-size:.86rem}
+.chip.active{background:#fff;color:#11152a;border-color:#fff;font-weight:900}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:28px 0 14px}
+.sectionHead h2{margin:0;font-size:clamp(1.4rem,3vw,2.1rem)}
+.count{color:var(--sub);font-size:.86rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border-radius:22px;padding:18px;cursor:pointer;min-height:202px;display:flex;flex-direction:column;transition:.18s transform,.18s border-color,.18s background;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.24)}
+.card:after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;right:-25px;bottom:-40px;background:var(--glow,#9a7cff);filter:blur(25px);opacity:.12}
+.cardTop{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.no{font-size:.76rem;color:#858cac;font-weight:800}
+.ico{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid var(--line);font-size:1.12rem;font-weight:900}
+.card h3{font-size:1.13rem;line-height:1.4;margin:18px 0 8px}
+.tag{font-size:.75rem;color:#9ba2c1;font-weight:800}
+.quick{color:#cfd3e7;font-size:.88rem;margin:auto 0 0}
+.empty{padding:48px 12px;text-align:center;color:var(--sub);display:none}
+.drawer{position:fixed;inset:0;z-index:100;display:none}
+.drawer.show{display:block}
+.backdrop{position:absolute;inset:0;background:rgba(4,5,12,.7);backdrop-filter:blur(6px)}
+.sheet{position:absolute;right:0;top:0;height:100%;width:min(560px,100%);background:#12152a;border-left:1px solid var(--line);padding:20px;overflow:auto;box-shadow:-20px 0 60px rgba(0,0,0,.35);animation:slide .22s ease-out}
+@keyframes slide{from{transform:translateX(30px);opacity:0}to{transform:none;opacity:1}}
+.close{margin-left:auto;display:grid;place-items:center;width:42px;height:42px;border-radius:13px;border:1px solid var(--line);background:#1c2039;color:#fff;font-size:1.2rem}
+.bigIcon{width:78px;height:78px;border-radius:24px;display:grid;place-items:center;font-size:2rem;background:linear-gradient(145deg,rgba(154,124,255,.24),rgba(93,225,223,.11));border:1px solid var(--line);margin:22px 0}
+.sheet h2{font-size:clamp(1.8rem,7vw,3rem);line-height:1.08;margin:0}
+.meta{color:var(--cyan);font-weight:800;font-size:.82rem;margin-top:10px}
+.info{margin-top:22px;padding:16px;border-radius:18px;background:#1a1e36;border:1px solid var(--line)}
+.info b{font-size:.78rem;color:#9299bb;display:block;margin-bottom:7px;letter-spacing:.04em}
+.info p{margin:0;color:#eef0fa}
+.quote{background:linear-gradient(145deg,rgba(185,243,106,.10),rgba(93,225,223,.06));border-color:rgba(185,243,106,.2)}
+.quote p{font-weight:800;font-size:1.05rem}
+.tip{margin-top:18px;color:#9299bb;font-size:.82rem;line-height:1.6}
+footer{padding-top:48px;text-align:center;color:#707795;font-size:.78rem}
+@media(max-width:900px){.heroGrid{grid-template-columns:1fr}.roulette{min-height:250px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.wrap{padding:0 13px 56px}.hero{padding-top:18px}.topline{align-items:flex-start}.badge{display:none}.heroCopy{border-radius:22px;padding:24px 20px}.heroActions{display:grid;grid-template-columns:1fr 1fr}.primary,.ghost{padding:12px 10px}.roulette{border-radius:22px}.toolbar{margin-left:-13px;margin-right:-13px}.toolbarIn{padding:0 13px;display:block}.search{width:100%;margin-bottom:9px}.chips{overflow-x:auto;padding-bottom:2px}.grid{grid-template-columns:1fr;gap:10px}.card{min-height:160px;border-radius:19px}.sheet{width:100%;top:auto;bottom:0;height:min(86vh,760px);border-left:0;border-top:1px solid var(--line);border-radius:24px 24px 0 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+<div class="topline"><div class="brand">MORAL LENS LAB</div><div class="badge">高校1年｜倫理・哲学対話</div></div>
+<div class="heroGrid">
+<section class="heroCopy">
+<div class="eyebrow">30 WAYS TO SEE ONE QUESTION</div>
+<h1><span class="grad">正しさは、<br>ひとつじゃない。</span></h1>
+<p class="lead">「最後の1席」を誰に渡す？ 同じ答えでも、理由が違えば“見ている世界”も違う。30個の倫理のものさしから、自分の考え方を探してみよう。</p>
+<div class="heroActions">
+<button class="primary" id="randomBtn">今日のものさしを引く</button>
+<button class="ghost" onclick="document.getElementById('lenses').scrollIntoView()">30個から探す</button>
+</div>
+</section>
+<aside class="roulette">
+<div>
+<div class="rLabel">TODAY'S LENS</div>
+<div class="rIcon" id="rIcon">?</div>
+<div class="rTitle" id="rTitle">まだ引いていません</div>
+<div class="rDesc" id="rDesc">ボタンを押すと、30個の中から1つの判断基準がランダムで現れます。</div>
+</div>
+<div class="rFoot"><span class="small" id="rThinker">哲学者も表示されます</span><button class="ghost" id="openRandom" disabled>詳しく見る</button></div>
+</aside>
+</div>
+</header>
+</div>
+<div class="toolbar"><div class="toolbarIn">
+<input id="search" class="search" placeholder="「公平」「ロールズ」「自由」などで検索">
+<div class="chips" id="chips"></div>
+</div></div>
+<main class="wrap" id="lenses">
+<div class="sectionHead"><div><div class="eyebrow">EXPLORE THE LENSES</div><h2>どの「ものさし」で見る？</h2></div><div class="count" id="count"></div></div>
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">条件に合うものさしがありません。</div>
+<footer>哲学者との対応は授業用の「近さ」の目安です。思想を完全に一対一対応させるものではありません。</footer>
+</main>
+<div class="drawer" id="drawer" aria-hidden="true">
+<div class="backdrop" id="backdrop"></div>
+<article class="sheet">
+<button class="close" id="closeBtn">×</button>
+<div class="bigIcon" id="dIcon"></div>
+<div class="meta" id="dMeta"></div>
+<h2 id="dTitle"></h2>
+<div class="info"><b>このものさしの特徴</b><p id="dDesc"></p></div>
+<div class="info quote"><b>「最後の1席」なら、こんなふうに言う</b><p id="dEx"></p></div>
+<div class="info"><b>近い哲学者・倫理学者／思想</b><p id="dThinker"></p></div>
+<div class="tip">ポイント：同じ「Aさんを選ぶ」「Bさんを選ぶ」という結論でも、どのものさしを使ったかによって理由は変わります。</div>
+</article>
+</div>
+<script>
+const DATA=[{"n":1,"t":"功利主義／結果","cat":"結果・成果","icon":"◎","d":"行為の結果を重視し、より多くの人の幸福や利益が増える選択を考える。","ex":"Aさんが参加した方がイベント全体がよくなるなら、Aさんを選んだ方がいい。","th":"ベンサム、J.S.ミル"},{"n":2,"t":"義務・公平性","cat":"公平・ルール","icon":"⚖","d":"結果だけでなく、守るべき原則・義務・公平さを重視する。","ex":"得意だからという理由だけで優先していいの？ 誰にでも公平な基準で決めるべきだ。","th":"カント、ロールズ"},{"n":3,"t":"ケア・個別事情","cat":"人・関係","icon":"♡","d":"一律のルールだけでなく、相手との関係や具体的状況を重視する。","ex":"Bさんにとって、この1席は大きな意味をもつかもしれない。その事情も考えたい。","th":"キャロル・ギリガン、ネル・ノディングズ"},{"n":4,"t":"自己利益","cat":"自由・自己","icon":"↗","d":"自分自身の利益、安全、幸福、損得を判断基準にする。","ex":"Aさんを選んだ方が成功して、自分たちの評価も上がるならAさんがいい。","th":"ホッブズ、シジウィック"},{"n":5,"t":"権利・自由","cat":"自由・自己","icon":"✦","d":"他人が簡単に侵してはいけない権利や自由、本人の選択を重視する。","ex":"得意ではないという理由だけで、Bさんが挑戦する可能性を狭めていいの？","th":"ロック、J.S.ミル、ノージック"},{"n":6,"t":"実力・適性","cat":"結果・成果","icon":"★","d":"限られた機会を、その役割を最もよく果たせる人に配分する。","ex":"1席しかないなら、その機会を一番生かせるAさんに渡した方がいい。","th":"アリストテレスの配分的正義に近い"},{"n":7,"t":"努力・功績","cat":"結果・成果","icon":"↑","d":"能力だけでなく、これまでの努力・貢献・実績に応じて報いる。","ex":"これまで一番努力して準備してきた人に、その1席を渡すべきでは？","th":"アリストテレス、デイヴィッド・ミラー"},{"n":8,"t":"必要性","cat":"人・関係","icon":"＋","d":"誰が最も優秀かではなく、誰がその機会を最も必要としているかを見る。","ex":"この経験が進路を考える大きなきっかけになるBさんの方が、この機会を必要としている。","th":"必要原理、マルクスに近い"},{"n":9,"t":"機会の平等","cat":"公平・ルール","icon":"=","d":"結果ではなく、挑戦できる機会そのものを公平にする。","ex":"Aさんがすでに何度も経験しているなら、まだ経験のないBさんにもチャンスを与えたい。","th":"ジョン・ロールズ"},{"n":10,"t":"手続きの公正","cat":"公平・ルール","icon":"◇","d":"誰が選ばれたかだけでなく、決め方が公平で説明可能かを重視する。","ex":"誰かが主観で決めるより、条件を満たした2人で抽選した方が公平では？","th":"ロールズ、ハーバーマスに近い"},{"n":11,"t":"徳倫理／ありたい自分","cat":"自由・自己","icon":"☀","d":"何をするかだけでなく、自分はどんな人でありたいかから考える。","ex":"公平で思いやりのある人なら、この状況でどう判断するだろう？","th":"アリストテレス、マッキンタイア"},{"n":12,"t":"公共善・共同体","cat":"社会・対話","icon":"◉","d":"個人だけでなく、共同体全体にとって何が良いかを見る。","ex":"参加した経験を学校のみんなに還元してくれる人を選ぶ方が、学校全体にはよいのでは？","th":"アリストテレス、サンデル、マッキンタイア"},{"n":13,"t":"潜在能力・成長可能性","cat":"未来・リスク","icon":"↟","d":"現在の能力より、その機会で何ができるようになるかを見る。","ex":"今一番できる人より、この経験で可能性が大きく広がる人を選ぶのもよいのでは？","th":"アマルティア・セン、マーサ・ヌスバウム"},{"n":14,"t":"契約主義","cat":"社会・対話","icon":"≋","d":"当事者それぞれが合理的に拒否できない原則かを考える。","ex":"AさんにもBさんにも、納得できる理由として説明できる決め方にしよう。","th":"T.M.スキャンロン"},{"n":15,"t":"普遍化可能性","cat":"公平・ルール","icon":"∞","d":"同じルールを誰にでも、何度でも適用してよいかを考える。","ex":"これから毎回『一番得意な人を選ぶ』というルールにしても、本当にいい？","th":"カント、R.M.ヘア"},{"n":16,"t":"優先主義","cat":"公平・ルール","icon":"⇧","d":"同じ利益でも、より不利な立場の人が得る利益を重く見る。","ex":"すでに多くの機会を得ているAさんより、機会の少ないBさんへの1席の方が価値が大きいのでは？","th":"デレク・パーフィット"},{"n":17,"t":"十分主義","cat":"公平・ルール","icon":"✓","d":"完全な平等より、全員が一定水準以上の機会を持てているかを見る。","ex":"Aさんはすでに十分経験している。Bさんにも最低限の経験機会が必要では？","th":"ハリー・フランクファートなど"},{"n":18,"t":"運の平等","cat":"公平・ルール","icon":"♧","d":"本人が選べなかった事情で生じた不利は、できるだけ補うべきと考える。","ex":"Bさんが能力を伸ばす機会を持てなかったのが本人のせいでないなら、考慮すべきでは？","th":"ドゥオーキン、G.A.コーエン"},{"n":19,"t":"マキシミン","cat":"公平・ルール","icon":"↓","d":"最も不利になる人の状態を、できるだけ良くすることを考える。","ex":"この1席をもらえなかったとき、より不利になるのはどちらだろう？","th":"ジョン・ロールズ"},{"n":20,"t":"相互性・互恵性","cat":"社会・対話","icon":"⇄","d":"互いに助け合い、受け取ったものを返す関係を重視する。","ex":"これまで学校に貢献してくれた人に、学校も機会を返すべきでは？","th":"ロールズの互恵性など"},{"n":21,"t":"対話・熟議","cat":"社会・対話","icon":"…","d":"当事者が理由を出し合い、話し合って決定する過程を重視する。","ex":"AかBをこちらで決める前に、本人たちも含めて話し合って決めたら？","th":"ユルゲン・ハーバーマス"},{"n":22,"t":"プラグマティズム","cat":"未来・リスク","icon":"↻","d":"抽象原則だけでなく、実際に機能するかを試し、経験から改善する。","ex":"今回はこの方法で選び、その結果を見て次回の選考方法を改善しよう。","th":"ジョン・デューイ"},{"n":23,"t":"責任倫理","cat":"未来・リスク","icon":"!","d":"意図だけでなく、決定が生む結果に責任を持てるかを重視する。","ex":"Aさんを選んでもBさんを選んでも、その結果を自分たちは説明し、引き受けられる？","th":"マックス・ウェーバー、ハンス・ヨナス"},{"n":24,"t":"自律・本人決定","cat":"自由・自己","icon":"●","d":"他人が勝手に決めず、本人の意思や自己決定を重視する。","ex":"AさんとBさん本人は、その機会をどれくらい望んでいるのだろう？","th":"カント、ビーチャム＆チルドレスなど"},{"n":25,"t":"承認","cat":"人・関係","icon":"✧","d":"一人の人間として尊重され、価値ある存在として認められているかを見る。","ex":"『君は得意じゃないから無理』と扱うことは、Bさんをどう評価していることになる？","th":"アクセル・ホネット"},{"n":26,"t":"正義としての平等な尊重","cat":"公平・ルール","icon":"≡","d":"すべての人を同じ重要性を持つ存在として扱う。","ex":"Aさんの能力だけを高く評価して、Bさんの希望を最初から軽く扱っていない？","th":"ロナルド・ドゥオーキン"},{"n":27,"t":"卓越・完成主義","cat":"結果・成果","icon":"◆","d":"優れた能力や価値ある活動を、さらに高い水準へ伸ばすことを重視する。","ex":"一番能力のあるAさんをさらに伸ばすこと自体に価値があるのでは？","th":"アリストテレス、ジョセフ・ラズ"},{"n":28,"t":"真正性・自分らしさ","cat":"自由・自己","icon":"✺","d":"周囲の評価より、本人が本当に望む生き方や選択を重視する。","ex":"上手いかどうかではなく、本人が本当にこの経験を求めているかも大切では？","th":"キルケゴール、サルトル、チャールズ・テイラー"},{"n":29,"t":"予防原則","cat":"未来・リスク","icon":"△","d":"結果が不確実なとき、重大な損失が起きる可能性を避ける。","ex":"失敗したときの影響が大きいなら、経験のあるAさんを選ぶ方が安全では？","th":"ハンス・ヨナス、リスク倫理に近い"},{"n":30,"t":"修復的正義","cat":"社会・対話","icon":"↺","d":"過去の不公平や傷ついた関係をどう修復し、仕組みを変えるかを見る。","ex":"これまで初心者が選ばれにくかったなら、今回はその仕組み自体を見直すべきでは？","th":"ハワード・ゼアなど"}];
+const COLORS={"結果・成果":"#ffd86b","公平・ルール":"#5de1df","人・関係":"#ff8ab3","自由・自己":"#9a7cff","社会・対話":"#7aa7ff","未来・リスク":"#b9f36a"};
+let active="すべて", current=null;
+const grid=document.getElementById("grid"), chips=document.getElementById("chips"), search=document.getElementById("search");
+const categories=["すべて",...new Set(DATA.map(x=>x.cat))];
+categories.forEach(c=>{const b=document.createElement("button");b.className="chip"+(c==="すべて"?" active":"");b.textContent=c;b.onclick=()=>{active=c;[...chips.children].forEach(x=>x.classList.toggle("active",x.textContent===c));render()};chips.appendChild(b)});
+function render(){
+ const q=search.value.trim().toLowerCase();
+ const list=DATA.filter(x=>(active==="すべて"||x.cat===active)&&(!q||[x.t,x.cat,x.d,x.ex,x.th].join(" ").toLowerCase().includes(q)));
+ grid.innerHTML="";
+ list.forEach(x=>{
+  const el=document.createElement("article");el.className="card";el.style.setProperty("--glow",COLORS[x.cat]);
+  el.innerHTML='<div class="cardTop"><span class="no">LENS '+String(x.n).padStart(2,"0")+'</span><span class="ico">'+x.icon+'</span></div><h3>'+x.t+'</h3><div class="tag">'+x.cat+'</div><p class="quick">'+x.d+'</p>';
+  el.onclick=()=>openDrawer(x);grid.appendChild(el);
+ });
+ document.getElementById("count").textContent=list.length+" / 30";
+ document.getElementById("empty").style.display=list.length?"none":"block";
+}
+search.addEventListener("input",render);
+function openDrawer(x){
+ current=x;document.getElementById("dIcon").textContent=x.icon;document.getElementById("dMeta").textContent="LENS "+String(x.n).padStart(2,"0")+" ｜ "+x.cat;
+ document.getElementById("dTitle").textContent=x.t;document.getElementById("dDesc").textContent=x.d;document.getElementById("dEx").textContent="「"+x.ex+"」";document.getElementById("dThinker").textContent=x.th;
+ const d=document.getElementById("drawer");d.classList.add("show");d.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+}
+function closeDrawer(){const d=document.getElementById("drawer");d.classList.remove("show");d.setAttribute("aria-hidden","true");document.body.style.overflow=""}
+document.getElementById("closeBtn").onclick=closeDrawer;document.getElementById("backdrop").onclick=closeDrawer;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer()});
+document.getElementById("randomBtn").onclick=()=>{
+ current=DATA[Math.floor(Math.random()*DATA.length)];
+ document.getElementById("rIcon").textContent=current.icon;document.getElementById("rTitle").textContent=current.t;document.getElementById("rDesc").textContent=current.d;document.getElementById("rThinker").textContent=current.th;document.getElementById("openRandom").disabled=false;
+};
+document.getElementById("openRandom").onclick=()=>current&&openDrawer(current);
+render();
+</script>
+</body></html>
